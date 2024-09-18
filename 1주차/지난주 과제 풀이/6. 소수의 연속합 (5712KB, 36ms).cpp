@@ -17,8 +17,8 @@ void MakePrimes(vector<int>& primes)
             continue;
 
         primes.push_back(i);
-        for (int j = 2; i * j <= MAX; j++)
-            isPrime[i * j] = false;
+        for (int j = i + i; j <= MAX; j += i)
+            isPrime[j] = false;
     }
 }
 
@@ -26,25 +26,30 @@ int main()
 {
     FastIO;
 
-    int n;
-    cin>>n;
-
     vector<int> primes;
     MakePrimes(primes);
 
-    int result = 0;
     int p = primes.size();
-    for (int i = 0; i < p; i++)
+
+    int n;
+    cin >> n;
+
+    int result = 0;
+    int sum = 0;
+    int left = 0, right = 0;
+    while (right <= p)
     {
-        int sum = 0;
-        for (int j = i; j < p && sum < n; j++)
+        if (right == p && sum < n)
+            break;
+
+        if (sum < n)
+            sum += primes[right++];
+        else if (sum > n)
+            sum -= primes[left++];
+        else if (sum == n)
         {
-            sum += primes[j];
-            if (sum == n)
-            {
-                result++;
-                break;
-            }
+            result++;
+            sum -= primes[left++];
         }
     }
     cout << result << '\n';
