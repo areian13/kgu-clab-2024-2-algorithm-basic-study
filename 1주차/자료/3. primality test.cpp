@@ -14,7 +14,9 @@ bool BruteTest(int n)
 {
     if (n <= 1)
         return false;
-
+    if (n == 2)
+        return true;
+    
     for (int i = 2; i < n; i++)
     {
         if (n % i == 0)
@@ -28,10 +30,10 @@ bool SqrtTest(int n)
     if (n <= 1)
         return false;
 
-    int s = sqrt(n) + 0.5;
+    int s = sqrt(n) + 0.5; 
     for (int i = 2; i <= s; i++)
     {
-        if (n % 2 == 0)
+        if (n % i == 0)
             return false;
     }
     return true;
