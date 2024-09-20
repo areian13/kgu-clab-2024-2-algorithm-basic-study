@@ -51,9 +51,6 @@ bool SieveTest(int n)
         isPrime[0] = isPrime[1] = false;
         for (int i = 2; i <= MAX; i++)
         {
-            if (!isPrime[i])
-                continue;
-
             for (int j = i + i; j <= MAX; j += i)
                 isPrime[j] = false;
         }
