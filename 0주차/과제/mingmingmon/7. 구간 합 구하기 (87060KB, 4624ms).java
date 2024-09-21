@@ -1,5 +1,3 @@
-package BaekJoon.Gold.G1;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,7 +7,7 @@ import java.util.StringTokenizer;
 /*
 무지성 구현으로 풀리는 것 같은데, 괜찮은건가요..?
 */
-public class G1_2042 {
+public class Main {
 
     public static void changeNumber(long[] numbers, long b, long c) {
         numbers[(int)b] = c;
