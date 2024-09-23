@@ -30,8 +30,7 @@ bool SqrtTest(int n)
     if (n <= 1)
         return false;
 
-    int s = sqrt(n) + 0.5;
-    for (int i = 2; i <= s; i++)
+    for (int i = 2; i * i <= n; i++)
     {
         if (n % i == 0)
             return false;

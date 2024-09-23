@@ -26,11 +26,11 @@ int BaseToDec(string& num, int from)
     int digit = num.size();
 
     int result = 0;
-    int k = 1;
+    int power = 1;
     for (int i = digit - 1; i >= 0; i--)
     {
-        result += ctod(num[i]) * k;
-        k *= from;
+        result += ctod(num[i]) * power;
+        power *= from;
     }
     return result;
 }
