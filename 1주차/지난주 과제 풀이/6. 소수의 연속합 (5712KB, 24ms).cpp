@@ -11,14 +11,19 @@ void MakePrimes(vector<int>& primes)
 {
     vector<bool> isPrime(MAX + 1, true);
     isPrime[0] = isPrime[1] = false;
-    for (int i = 2; i <= MAX; i++)
+    for (int i = 2; i * i <= MAX; i++)
     {
         if (!isPrime[i])
             continue;
 
-        primes.push_back(i);
-        for (int j = i + i; j <= MAX; j += i)
+        for (int j = i * i; j <= MAX; j += i)
             isPrime[j] = false;
+    }
+
+    for (int i = 0; i <= MAX; i++)
+    {
+        if (isPrime[i])
+            primes.push_back(i);
     }
 }
 
