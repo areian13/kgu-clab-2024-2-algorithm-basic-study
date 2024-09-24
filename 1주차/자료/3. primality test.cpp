@@ -48,9 +48,11 @@ bool SieveTest(int n)
         isInited = true;
 
         isPrime[0] = isPrime[1] = false;
-        for (int i = 2; i <= MAX; i++)
+        for (int i = 2; i * i <= MAX; i++)
         {
-            for (int j = i + i; j <= MAX; j += i)
+            if (!isPrime[i])
+                continue;
+            for (int j = i * i; j <= MAX; j += i)
                 isPrime[j] = false;
         }
     }
