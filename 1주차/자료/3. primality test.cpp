@@ -14,8 +14,6 @@ bool BruteTest(int n)
 {
     if (n <= 1)
         return false;
-    if (n == 2)
-        return true;
 
     for (int i = 2; i < n; i++)
     {
@@ -48,11 +46,11 @@ bool SieveTest(int n)
         isInited = true;
 
         isPrime[0] = isPrime[1] = false;
-        for (int i = 2; i * i <= MAX; i++)
+        for (int i = 2; i <= MAX; i++)
         {
             if (!isPrime[i])
                 continue;
-            for (int j = i * i; j <= MAX; j += i)
+            for (int j = i + i; j <= MAX; j += i)
                 isPrime[j] = false;
         }
     }
@@ -60,61 +58,51 @@ bool SieveTest(int n)
     return isPrime[n];
 }
 
+template <typename T, typename... Args>
+auto MeasureTime(T func, int n = MAX)
+{
+    auto start = chrono::high_resolution_clock::now();
+
+    for (int i = 0; i <= n; i++)
+        func(i);
+
+    auto end = chrono::high_resolution_clock::now();
+    auto dt = chrono::duration_cast<chrono::microseconds>(end - start).count();
+    return dt;
+}
+
 int main()
 {
     FastIO;
 
     cout << "brute test start" << '\n';
-    auto start = chrono::high_resolution_clock::now();
-
-    for (int n = 0; n <= MAX; n++)
-        BruteTest(n);
-
-    auto end = chrono::high_resolution_clock::now();
-    auto dt = chrono::duration_cast<chrono::microseconds>(end - start).count();
+    auto dt = MeasureTime(BruteTest);
     cout << "brute test time: " << dt << '\n';
     cout << '\n';
 
     ////////////////////////////////////////////
 
     cout << "sqrt test start" << '\n';
-    start = chrono::high_resolution_clock::now();
-
-    for (int n = 0; n <= MAX; n++)
-        SqrtTest(n);
-
-    end = chrono::high_resolution_clock::now();
-    dt = chrono::duration_cast<chrono::microseconds>(end - start).count();
+    dt = MeasureTime(SqrtTest);
     cout << "sqrt test time: " << dt << '\n';
     cout << '\n';
 
     ////////////////////////////////////////////
 
      /*
-    * isPrime 미리 초기화해놓기
-    * 이걸 precomputation, 일명 런타임 전의 전처리 라고 부름
-    */
+      * isPrime 미리 초기화해놓기
+      * 이걸 precomputation, 일명 런타임 전의 전처리 라고 부름
+      */
 
     cout << "seive init start" << '\n';
-    start = chrono::high_resolution_clock::now();
-
-    SieveTest(0);
-
-    end = chrono::high_resolution_clock::now();
-    dt = chrono::duration_cast<chrono::microseconds>(end - start).count();
+    dt = MeasureTime(SieveTest, 0);
     cout << "sieve init time: " << dt << '\n';
     cout << '\n';
 
     ////////////////////////////////////////////
 
     cout << "seive test start" << '\n';
-    start = chrono::high_resolution_clock::now();
-
-    for (int n = 0; n <= MAX; n++)
-        SieveTest(n);
-
-    end = chrono::high_resolution_clock::now();
-    dt = chrono::duration_cast<chrono::microseconds>(end - start).count();
+    dt = MeasureTime(SieveTest);
     cout << "sieve test time: " << dt << '\n';
     cout << '\n';
 }
