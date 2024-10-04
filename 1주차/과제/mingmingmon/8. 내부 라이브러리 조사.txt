@@ -1,0 +1,33 @@
+# 1. 최대공약수 -> java.math.BigInteger의 gcd()
+BigInteger a = BigInteger.valueOf(48);
+BigInteger b = BigInteger.valueOf(18);
+BigInteger gcd = a.gcd(b);
+System.out.println(gcd);
+
+# 2. 최소공배수 -> 직접 제공하지 않음. gcd()를 사용해서 계산
+
+# 3. 소수판정 -> 직접 제공하지 않음.
+
+# 4. 배열의 요소 중 가장 작은 것 찾기 -> java.util.Arrays의 stream()과 min() 함께 사용
+int[] arr = {4, 2, 7, 1, 5};
+int min = Arrays.stream(arr).min().getAsInt();
+System.out.println(min);
+
+# 5. 진법 변환 -> Integer.toString()과 Integer.parseInt()
+- 10진수에서 n진수로
+int decimal = 10;
+String binary = Integer.toString(decimal, 2);
+System.out.println(binary);
+
+- n진수에서 10진수로
+String binary = "1010";
+int decimal = Integer.parseInt(binary, 2);
+System.out.println(decimal);
+
+# 6. 숫자를 문자로 변환 -> Character.forDigit()
+char c = Character.forDigit(9, 10);
+System.out.println(c);
+
+# 7. 문자를 숫자로 변환 -> Character.getNumericValue()
+int num = Character.getNumericValue('7');
+System.out.println(num);
