@@ -21,6 +21,9 @@ public class Main {
         isPrime[0] = isPrime[1] = false;
 
         for (int i = 2; i * i <= SIZE; i++) {
+            if (!isPrime[i]) {
+                continue;
+            }
             for (int j = i * i; j <= SIZE; j += i) {
                 isPrime[j] = false;
             }

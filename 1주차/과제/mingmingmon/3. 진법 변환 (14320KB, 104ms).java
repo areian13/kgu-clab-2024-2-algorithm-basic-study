@@ -16,15 +16,15 @@ public class Main {
 
     public static int getDecimal(String string, int b) {
         int n = string.length();
-        int sum = 0;
-        int digit = 1;
+        int decimal = 0;
+        int power = 1;
         for (int i = n - 1; i >= 0; i--) {
             char currChar = string.charAt(i);
             int currInt = charToInt(currChar);
-            sum += currInt * digit;
-            digit *= b;
+            decimal += currInt * power;
+            power *= b;
         }
-        return sum;
+        return decimal;
     }
 
     public static void main(String[] args) throws IOException {

@@ -16,15 +16,15 @@ public class Main {
 
     public static int getDecimal(String string, int b) {
         int n = string.length();
-        int sum = 0;
-        int digit = 1;
+        int deciaml = 0;
+        int power = 1;
         for (int i = n - 1; i >= 0; i--) {
             char currChar = string.charAt(i);
             int currInt = charToInt(currChar);
-            sum += currInt * digit;
-            digit *= b;
+            deciaml += currInt * power;
+            power *= b;
         }
-        return sum;
+        return deciaml;
     }
 
     public static char intToChar(int n) {
@@ -45,13 +45,13 @@ public class Main {
 
     public static String getNumberInBase(int n, int b) {
         StringBuilder sb = new StringBuilder();
-        while(n != 0) {
+        do {
             int mod = n % b;
             char charMod = intToChar(mod);
             sb.append(charMod);
             n /= b;
-        }
-        return reverseString(sb.toString());
+        } while(n != 0);
+        return sb.reverse().toString();
     }
 
     public static String convertBase(String givenString, int fromBase, int toBase) {

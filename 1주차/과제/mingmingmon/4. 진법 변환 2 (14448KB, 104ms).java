@@ -14,26 +14,17 @@ public class Main {
         return (char)(n + 'A' - 10);
     }
 
-    public static String reverseString(String string) {
-        int n = string.length();
-        StringBuilder sb = new StringBuilder();
-        for (int i = n - 1; i >= 0; i--) {
-            sb.append(string.charAt(i));
-        }
-        return sb.toString();
-    }
-
     public static String getNumberInBase(int n, int b) {
         StringBuilder sb = new StringBuilder();
 
-        while(n != 0) {
+        do {
             int mod = n % b;
             char charMod = intToChar(mod);
             sb.append(charMod);
             n /= b;
-        }
+        } while(n != 0);
 
-        return reverseString(sb.toString());
+        return sb.reverse().toString();
     }
 
     public static void main(String[] args) throws IOException {

@@ -18,7 +18,6 @@ public class Main {
         Arrays.fill(isPrime, true);
 
         isPrime[0] = isPrime[1] = false;
-        isPrime[2] = true;
         for (int i = 2; i * i <= SIZE; i++) {
             if (!isPrime[i]) {
                 continue;
