@@ -27,7 +27,7 @@ public class Main {
             gap[i] = trees[i + 1] - trees[i];
         }
 
-        int resultGap = gap[0];
+        int resultGap = 0;
         for (int i = 0; i < n - 1; i++) {
             resultGap = getGCD(resultGap, gap[i]);
         }
