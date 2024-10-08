@@ -1,0 +1,6 @@
+1. 최대공약수, 최대공배수를 지원하는 라이브러리
+#include <numeric> // gcd, lcm 함수가 포함된 헤더
+gcd(a, b)
+lcm(a, b)
+
+
