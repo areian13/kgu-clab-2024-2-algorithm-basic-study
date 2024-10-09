@@ -12,6 +12,16 @@ int GCD(int a, int b)
     return GCD(b, a % b);
 }
 
+int GetListGCD(vector<int>& list)
+{
+    int n = list.size();
+
+    int gcd = 0;
+    for (int i = 0; i < n; i++)
+        gcd = GCD(gcd, list[i]);
+    return gcd;
+}
+
 int main()
 {
     FastIO;
@@ -24,15 +34,13 @@ int main()
         cin >> x[i];
 
     vector<int> d(n - 1);
-    int dist = 0;
     for (int i = 0; i < n - 1; i++)
-    {
         d[i] = x[i + 1] - x[i];
-        dist = GCD(dist, d[i]);
-    }
+
+    int gcd = GetListGCD(d);
 
     int result = 0;
     for (int i = 0; i < n - 1; i++)
-        result += (d[i] / dist - 1);
+        result += (d[i] / gcd - 1);
     cout << result << '\n';
 }
