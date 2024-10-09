@@ -11,8 +11,11 @@ char change(int a) {
 }
 
 void solve(int val) {
-	if (val == 0)
+	if (val == 0) {
+		if (ans == "")
+			ans = "0";
 		return ;
+	}
 
 	if (val / B == 0) {
 		ans += val >= 10 ? change(val) : val + '0';

@@ -24,6 +24,7 @@ int main() {
 	FastIO;
 	cin >> N;
 
+	memset(dist, 0, sizeof(dist));
 	for (int i = 0; i < N; i++) {
 		cin >> road[i];
 		if (i > 0)

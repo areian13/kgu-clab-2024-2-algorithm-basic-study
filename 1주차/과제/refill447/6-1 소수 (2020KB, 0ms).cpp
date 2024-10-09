@@ -6,6 +6,9 @@ using namespace std;
 int M, N;
 
 bool check(int a) {
+	if (a == 1)
+		return false;
+
 	for (int i = 2; i * i <= a; i++) {
 		if (a % i == 0)
 			return false;
@@ -19,13 +22,12 @@ void solve() {
 	int ans = 0;
 
 	for (int i = M; i <= N; i++) {
-		if (i == 1)
+		if (!check(i)) 
 			continue;
-		if (check(i)) {
-			ans += i;
-			if (first == -1)
-				first = i;
-		}
+	
+		ans += i;
+		if (first == -1)
+			first = i;
 	}
 
 	if (first == -1) {

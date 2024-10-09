@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #define FastIO cin.tie(0); cout.tie(0); ios_base::sync_with_stdio(0);
-#define MAXNUM 1000000
+#define MAXNUM 1'000'000
 using namespace std;
 
 int M, N;

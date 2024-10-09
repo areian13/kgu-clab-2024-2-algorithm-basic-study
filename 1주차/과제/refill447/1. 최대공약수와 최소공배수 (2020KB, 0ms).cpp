@@ -11,17 +11,13 @@ int gcd(int a, int b) {
 	return gcd(b, a % b);
 }
 
-void lcm(int a, int b) {
-	g = gcd(a, b);
-	l = a * b / g;
+int lcm(int a, int b) {
+	return a * b / gcd(a, b);
 }
 
 int main() {
 	FastIO;
 	cin >> N >> M;
-	int a = N > M ? N : M;	
-	int b = N > M ? M : N;
-	lcm(a, b);
-	cout << g << "\n" << l << "\n";
+	cout << gcd(N, M) << "\n" << lcm(N, M) << "\n";
 	return 0;
 }

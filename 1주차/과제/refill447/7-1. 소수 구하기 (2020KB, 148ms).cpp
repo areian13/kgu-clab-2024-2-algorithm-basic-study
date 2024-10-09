@@ -5,6 +5,8 @@ using namespace std;
 int M, N;
 
 bool check(int a) {
+	if (a == 1)
+			return false;
 	for (int i = 2; i * i <= a; i++) {
 		if (a % i == 0)
 			return false;
@@ -15,10 +17,8 @@ bool check(int a) {
 void solve() {
 	cin >> M >> N;
 	for (int i = M; i <= N; i++) {
-		if (i == 1)
-			continue;
-		if (check(i))
-			cout << i << "\n";
+		if (!check(i)) continue;
+		cout << i << "\n";
 	}
 }
 

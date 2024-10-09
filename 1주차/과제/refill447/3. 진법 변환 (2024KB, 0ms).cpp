@@ -7,7 +7,7 @@ string str;
 int N;
 
 bool my_is_digit(char c) {
-	if (c >= 48 && c <= 57)
+	if (c >= '0' && c <= '9')
 		return true;
 	return false;
 }
@@ -20,7 +20,7 @@ void solve() {
 		if (!my_is_digit(str[i]))
 			c = str[i] - 'A' + 10;
 		else
-			c = str[i] - 48;
+			c = str[i] - '0';
 			
 		ans += c * B;
 		B *= N;
