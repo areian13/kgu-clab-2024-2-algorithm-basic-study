@@ -21,7 +21,6 @@ int GetListGCD(vector<int>& list)
         gcd = GCD(gcd, list[i]);
     return gcd;
 }
-
 int main()
 {
     FastIO;
