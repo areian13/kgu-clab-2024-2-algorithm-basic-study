@@ -12,10 +12,10 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> {
-            if (Math.abs(o1) == Math.abs(o2)) {
-                return o1 - o2;
+            if (Math.abs(o1) != Math.abs(o2)) {
+                return Math.abs(o1) - Math.abs(o2);
             }
-            return Math.abs(o1) - Math.abs(o2);
+            return o1 - o2;
         });
         int n = Integer.parseInt(br.readLine());
         for (int i = 0; i < n; i++) {
