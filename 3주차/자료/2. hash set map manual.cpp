@@ -1,10 +1,9 @@
 #include <iostream>
 #include <set>
 #include <map>
+#include <vector>
 
 #define FastIO ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
-#define lf(d) cout << fixed; cout.precision(d);
-#define ulf cout.unsetf(ios::scientific);
 
 using namespace std;
 
@@ -29,7 +28,8 @@ int main()
 
     cout << "===================\n";
 
-    map<string, int> myMap = { pair<string,int>{"apple",1},{"banana",2} };
+    // pair<string, int>를 굳이 쓰지 않아도, 암시적으로 형변환 해줌.
+    map<string, int> myMap = { {"apple",1},{"banana",2} };
     myMap.insert({ "podo",3 });
     myMap.emplace("gyul", 4);
     myMap["cat"] = 5;
