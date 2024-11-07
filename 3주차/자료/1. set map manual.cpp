@@ -1,6 +1,6 @@
 #include <iostream>
-#include <unordered_set>
-#include <unordered_map>
+#include <set>
+#include <map>
 
 #define FastIO ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
@@ -10,7 +10,7 @@ int main()
 {
     FastIO;
 
-    unordered_set<int> mySet = { 0,1,52,12,4 };
+    set<int> mySet = { 0,1,52,12,4 };
     mySet.insert(-100);
     mySet.insert(+123);
     mySet.insert(+123);
@@ -27,8 +27,7 @@ int main()
 
     cout << "===================\n";
 
-    // pair<string, int>를 굳이 쓰지 않아도, 암시적으로 형변환 해줌.
-    unordered_map<string, int> myMap = { pair<string,int>{"apple",1},{"banana",2} };
+    map<string, int> myMap = { pair<string,int>{"apple",1},{"banana",2} };
     myMap.insert({ "podo",3 });
     myMap.emplace("gyul", 4);
     myMap["cat"] = 5;
