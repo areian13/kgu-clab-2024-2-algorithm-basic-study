@@ -30,8 +30,8 @@ int main()
         if (elem.second == true)
             result.push_back(elem.first);
     }
-
     sort(result.begin(), result.end(), greater<string>());
+
     for (string& name : result)
         cout << name << '\n';
 }
