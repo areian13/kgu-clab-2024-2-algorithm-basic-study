@@ -23,13 +23,15 @@ public class Main {
             if (status.equals("enter")) {
                 hm.put(name, true);
             } else {
-                hm.remove(name);
+                hm.put(name, false);
             }
         }
 
         List<String> names = new ArrayList<>();
         for (Map.Entry<String, Boolean> entry : hm.entrySet()) {
-            names.add(entry.getKey());
+            if (hm.get(entry.getKey())) {
+                names.add(entry.getKey());
+            }
         }
 
         Collections.sort(names, Collections.reverseOrder());

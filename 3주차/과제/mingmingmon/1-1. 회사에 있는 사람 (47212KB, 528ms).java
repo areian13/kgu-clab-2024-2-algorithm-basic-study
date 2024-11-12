@@ -3,7 +3,9 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
@@ -21,13 +23,15 @@ public class Main {
             if (status.equals("enter")) {
                 map.put(name, true);
             } else {
-                map.remove(name);
+                map.put(name, false);
             }
         }
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         for (Map.Entry<String, Boolean> entry : map.entrySet()) {
-            bw.write(entry.getKey() + "\n");
+            if (map.get(entry.getKey())) {
+                bw.write(entry.getKey() + "\n");
+            }
         }
 
         bw.flush();

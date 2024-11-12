@@ -13,7 +13,7 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int tc = Integer.parseInt(br.readLine());
-        for (int i = 0; i < tc; i++) {
+        while(tc-- > 0) {
             HashMap<String, Integer> hm = new HashMap<>();
             int n = Integer.parseInt(br.readLine());
             for (int j = 0; j < n; j++) {
