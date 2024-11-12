@@ -29,7 +29,7 @@ public class Main {
 
         List<String> names = new ArrayList<>();
         for (Map.Entry<String, Boolean> entry : hm.entrySet()) {
-            if (hm.get(entry.getKey())) {
+            if (entry.getValue()) {
                 names.add(entry.getKey());
             }
         }

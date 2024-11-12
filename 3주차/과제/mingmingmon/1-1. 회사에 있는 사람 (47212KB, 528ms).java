@@ -29,7 +29,7 @@ public class Main {
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         for (Map.Entry<String, Boolean> entry : map.entrySet()) {
-            if (map.get(entry.getKey())) {
+            if (entry.getValue()) {
                 bw.write(entry.getKey() + "\n");
             }
         }
