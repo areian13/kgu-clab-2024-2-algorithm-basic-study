@@ -33,7 +33,7 @@ int main()
     }
 
     vector<int> result;
-    for (int i = 1; i <= n / 2; i++)
+    for (int i = 1; i < n; i++)
     {
         int k = x[i] - x[0];
 
@@ -41,9 +41,7 @@ int main()
             result.push_back(k);
     }
 
-    sort(result.begin(), result.end());
-
     cout << result.size() << '\n';
-    for (int x : result)
-        cout << x << '\n';
+    for (int k : result)
+        cout << k << '\n';
 }

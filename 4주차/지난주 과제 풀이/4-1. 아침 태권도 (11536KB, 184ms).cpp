@@ -6,26 +6,6 @@
 
 using namespace std;
 
-struct Pos
-{
-    int x, y;
-
-    friend bool operator==(const Pos& a, const Pos& b)
-    {
-        return a.x == b.x && a.y == b.y;
-    }
-
-    struct Hash
-    {
-        size_t operator()(const Pos& p) const
-        {
-            size_t h1 = hash<int>{}(p.x);
-            size_t h2 = hash<int>{}(p.y);
-            return h1 ^ (h2 << 1);
-        }
-    };
-};
-
 int GCD(int a, int b)
 {
     if (b == 0)
@@ -33,18 +13,43 @@ int GCD(int a, int b)
     return GCD(b, a % b);
 }
 
+struct Position
+{
+    int x, y;
+
+    friend bool operator==(const Position& a, const Position& b)
+    {
+        return a.x == b.x && a.y == b.y;
+    }
+};
+
+namespace std
+{
+    template<>
+    struct hash<Position>
+    {
+        size_t operator()(const Position& position) const
+        {
+            size_t h1 = hash<int>{}(position.x);
+            size_t h2 = hash<int>{}(position.y);
+
+            return h1 ^ (h2 << 1);
+        }
+    };
+}
+
 int main()
 {
     FastIO;
 
     int n;
-    cin>> n;
+    cin >> n;
 
-    unordered_set<Pos, Pos::Hash> canSee;
+    unordered_set<Position> canSee;
     for (int i = 0; i < n; i++)
     {
         int x, y;
-        cin>>x >> y;
+        cin >> x >> y;
 
         int gcd = GCD(abs(x), abs(y));
         x /= gcd;
