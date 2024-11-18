@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    public static int countGreaterOrEqualNumbers(long k, long[] A) {
+    public static int getMinIndexOfGreaterOrEqualNumber(long k, long[] A) {
         int start = 0;
         int end = A.length - 1;
         int result = A.length;
@@ -23,10 +23,10 @@ public class Main {
             }
         }
 
-        return A.length - result;
+        return result;
     }
 
-    public static int countGreaterNumbers(long k, long[] A) {
+    public static int getMinIndexOfGreaterNumber(long k, long[] A) {
         int start = 0;
         int end = A.length - 1;
         int result = A.length;
@@ -41,13 +41,13 @@ public class Main {
             }
         }
 
-        return A.length - result;
+        return result;
     }
 
     public static int countBetweenNumbers(long a, long b, long[] A) {
-        int cntA = countGreaterOrEqualNumbers(a, A);
-        int cntB = countGreaterNumbers(b, A);
-        return cntA - cntB;
+        int cntA = getMinIndexOfGreaterOrEqualNumber(a, A);
+        int cntB = getMinIndexOfGreaterNumber(b, A);
+        return cntB - cntA;
     }
 
     public static void main(String[] args) throws IOException {
@@ -70,9 +70,9 @@ public class Main {
             long a = Long.parseLong(st.nextToken());
             int cnt = 0;
             if (queryType == 1) {
-                cnt = countGreaterOrEqualNumbers(a, A);
+                cnt = A.length - getMinIndexOfGreaterOrEqualNumber(a, A);
             } else if (queryType == 2) {
-                cnt = countGreaterNumbers(a, A);
+                cnt = A.length - getMinIndexOfGreaterNumber(a, A);
             } else if (queryType == 3) {
                 long b = Long.parseLong(st.nextToken());
                 cnt = countBetweenNumbers(a, b, A);
